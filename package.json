@@ -1,9 +1,9 @@
 {
-  "name": "day-2",
+  "name": "ecommerce",
   "version": "1.0.0",
-  "description": "",
+  "description": "The final project for NodeJS course in the ITI",
   "license": "ISC",
-  "author": "",
+  "author": "Nada Salah",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {

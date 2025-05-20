@@ -6,15 +6,15 @@ const { userSchema } = require("../validation/user.validation");
 const { validate } = require("../middlewares/validate");
 
 
-router.post("/",auth,restrictTo('admin'),validate(userSchema),saveUser);
+router.post("/",validate(userSchema),saveUser);
 
 router.post("/login", login);
 
 router.get("/",auth,restrictTo('admin','user'),getAll);
 
-router.patch("/:id",auth,restrictTo('admin'),update);
+router.patch("/:id",auth,restrictTo('admin,user'),update);
 
-router.delete("/:id",auth,restrictTo('admin'),remove);
+router.delete("/:id",auth,restrictTo('admin,user'),remove);
 
 
 module.exports= router;
