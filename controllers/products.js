@@ -6,6 +6,8 @@ const { CatchAsync } = require("../utils/CatchAsync");
 const getByProductName = CatchAsync(async (req, res, next) => {
   const { name } = req.params;
   let products = await productModel.find({ name: name });
+  console.log(name);
+  
   if (!products || products.length == 0) {
     next(new AppError(400, "Product not found"));
   }
@@ -16,12 +18,15 @@ const getByProductName = CatchAsync(async (req, res, next) => {
 });
 
 const getBySellerName = CatchAsync(async (req, res, next) => {
-  const { sellerName } = req.params;
+  const { name } = req.params;
+  console.log(req);
+  
   let sellers = await userModel.find({
     role: "seller",
     $or: [
-      { firstName: { $regex: sellerName, $options: "i" } },
-      { lastName: { $regex: sellerName, $options: "i" } }
+      { firstName: { $regex: name, $options: "i" } },
+      { lastName: { $regex: name, $options: "i" } },
+      { username: { $regex: name, $options: "i" } }
     ]
   });
   if (!sellers || sellers.length == 0) {

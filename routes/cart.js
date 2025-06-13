@@ -5,13 +5,13 @@
  const { cartSchema } = require("../validation/cart.validation");
  const { validate } = require("../middlewares/validate");
 
- router.post("/",auth,restrictTo('user,admin'),validate(cartSchema),add);
+ router.post("/",auth,restrictTo('user','admin'),validate(cartSchema),add);
 
  router.get("/",auth,restrictTo('admin','user'),get);
  
- router.patch("/:id",auth,restrictTo('admin,user'),update);
+ router.patch("/",auth,restrictTo('admin','user'),update);
  
- router.delete("/:id",auth,restrictTo('admin,user'),remove);
+ router.delete("/",auth,restrictTo('admin','user'),remove);
  
 
  module.exports= router;

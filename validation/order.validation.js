@@ -11,7 +11,6 @@ exports.orderSchema = Joi.object({
     )
     .min(1)
     .required(),
-  totalPrice: Joi.number().min(0).required(),
   paymentMethod: Joi.string()
     .valid("cashOnDelivery", "stripe", "paypal")
     .default("cashOnDelivery"),

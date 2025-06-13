@@ -27,13 +27,13 @@ exports.auth=(req,res,next)=>{
 
 exports.restrictTo= (...roles)=>{
     return(req,res,next)=>{
-        if(!roles.includes(req.role)){
-            res.status(401).json({
+        if(!roles.includes(req.role)) {
+            res.status(403).json({
                 status:"fail",
                 message:"You do not have permission."
             })
-        }else{
-            next();
         }
+        next();
+        
     }
 }

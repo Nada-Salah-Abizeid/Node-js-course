@@ -64,6 +64,7 @@
     "is-number": "^7.0.0",
     "is-promise": "^4.0.0",
     "joi": "^17.13.3",
+    "jsdom": "^26.1.0",
     "jsonwebtoken": "^9.0.2",
     "math-intrinsics": "^1.1.0",
     "media-typer": "^1.1.0",

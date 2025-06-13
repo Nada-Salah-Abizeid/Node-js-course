@@ -33,7 +33,7 @@ const getAll = CatchAsync(async(req,res,next)=>{
     const body = req.body; 
     let user;      
 
-      user = await userModel.findByIdAndUpdate(id,{username:body.username},{new:true});
+      user = await userModel.findByIdAndUpdate(id,body,{new:true, runValidators: true});
 
       if(user){
          res.status(200).json({
@@ -81,7 +81,7 @@ const getAll = CatchAsync(async(req,res,next)=>{
     let token = jwt.sign({id:user._id,email:user.email,role:user.role},process.env.SECRET,{expiresIn:'1h'});
     res.status(200).json({
         status:"user was edited successfully",
-         token:token
+         token:token,
      })
  }
 

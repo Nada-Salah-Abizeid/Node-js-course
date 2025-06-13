@@ -6,13 +6,13 @@
  const { validate } = require("../middlewares/validate");
 
 
- router.post("/",auth,restrictTo('admin,user'),validate(orderSchema),createOrder);
+ router.post("/",auth,restrictTo('admin','user'),validate(orderSchema),createOrder);
 
  router.get("/",auth,restrictTo('admin','user'),getAll);
  
- router.patch("/:id",auth,restrictTo('admin,user'),update);
+ router.patch("/:id",auth,restrictTo('admin','user'),update);
  
- router.delete("/:id",auth,restrictTo('admin,user'),remove);
+ router.delete("/:id",auth,restrictTo('admin','user'),remove);
  
 
  module.exports= router;

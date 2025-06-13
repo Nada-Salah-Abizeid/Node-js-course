@@ -24,7 +24,7 @@ const createOrder = CatchAsync(async (req, res, next) => {
 });
 
 const getAll = CatchAsync(async (req, res, next) => {
-  let order = await orderModel.find().populate("userId");
+  let order = await orderModel.find({userId: req.id}).populate("userId");
 
   res.status(200).json({
     status: "Success",

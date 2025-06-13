@@ -10,11 +10,11 @@ router.post("/",validate(userSchema),saveUser);
 
 router.post("/login", login);
 
-router.get("/",auth,restrictTo('admin','user'),getAll);
+router.get("/",getAll);
 
-router.patch("/:id",auth,restrictTo('admin,user'),update);
+router.patch("/:id",auth,restrictTo('admin','user','seller'),update);
 
-router.delete("/:id",auth,restrictTo('admin,user'),remove);
+router.delete("/:id",auth,restrictTo('admin','user','seller'),remove);
 
 
 module.exports= router;
